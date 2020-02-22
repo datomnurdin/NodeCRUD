@@ -6,6 +6,13 @@ const bodyparser = require('body-parser');
 
 app.use(bodyparser.json());
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  next();
+});
+
 var mysqlConnection = mysql.createConnection({
     host:'localhost',
     user:'root',
@@ -64,7 +71,7 @@ app.post('/user', (req, res) => {
 app.put('/user', (req, res) => {
     let user = req.body;
     var sql = "UPDATE users SET username = ?, email = ?, phone_number = ?, skillsets = ?, hobby = ?, dateUpdated = NOW() WHERE userId = ?;"
-    mysqlConnection.query(sql, [user.username, user.email, user.phone_number, user.skillsets, user.hobby, user.dateUpdated, user.userId], (err, rows, fields) => {
+    mysqlConnection.query(sql, [user.username, user.email, user.phone_number, user.skillsets, user.hobby, user.userId], (err, rows, fields) => {
         if(!err){
             console.log(user.userId);
             res.send('User successfully updated!!!');
