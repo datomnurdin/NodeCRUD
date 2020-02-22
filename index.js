@@ -14,7 +14,7 @@ app.use(function(req, res, next) {
 });
 
 var mysqlConnection = mysql.createConnection({
-    host:'localhost',
+    host:'us-cdbr-iron-east-04.cleardb.net',
     user:'b8e5aa576a455f',
     password:'107174e5',
     database:'heroku_5c41f846575f70b',
