@@ -18,7 +18,7 @@ var mysqlConnection = mysql.createConnection({
     user:'b8e5aa576a455f',
     password:'107174e5',
     database:'heroku_5c41f846575f70b',
-    socketPath : '/Applications/MAMP/tmp/mysql/mysql.sock' //for mac machine
+    //socketPath : '/Applications/MAMP/tmp/mysql/mysql.sock' //for mac machine
 });
 
 mysqlConnection.connect((err) => {
