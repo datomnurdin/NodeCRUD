@@ -32,7 +32,7 @@ PRIMARY KEY (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 ```
 
-Demo: 
+Demo: https://www.youtube.com/watch?v=nrIFVA5bygk
 
 ## Built With
 
