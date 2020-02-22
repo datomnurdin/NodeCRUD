@@ -30,9 +30,16 @@ mysqlConnection.connect((err) => {
     }
 });
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log('Express server listening on port', port)
+app.set("port", process.env.PORT || 3000);
+app.set("host", process.env.HOST || "localhost");
+
+app.listen(app.get("port"), function() {
+  console.log(
+   "%s server listening at http://%s:%s",
+    process.env.NODE_ENV,
+   app.get("host"),
+   app.get("port")
+  );
 });
 
 app.get('/users', (req, res) => {
